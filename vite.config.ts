@@ -1,8 +1,14 @@
 import vue from "@vitejs/plugin-vue"
+import Icons from "unplugin-icons/vite"
 import { defineConfig } from "vite"
 
 module.exports = defineConfig({
-	plugins: [vue({ customElement: true })],
+	plugins: [
+		vue({ customElement: true }),
+		Icons({
+			autoInstall: true,
+		})
+	],
 	build: {
 		lib: {
 			entry: "./src/view/index.ts",

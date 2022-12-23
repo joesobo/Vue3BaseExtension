@@ -8,7 +8,7 @@ Everything you need to get started with a sidebar extension.
 - [x] Vue 3
 - [x] Vite
 - [x] Tailwindcss
-- [ ] Iconify
+- [x] Iconify via Unplugin-icons
 - [ ] Decent Linting
 - [ ] Decent Typechecking
 - [ ] CircleCI
