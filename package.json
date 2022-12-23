@@ -1,0 +1,55 @@
+{
+  "name": "vue3baseextension",
+  "displayName": "vue3BaseExtension",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/extension.js",
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "activationEvents": [],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "vue-3-base-view",
+          "title": "Vue 3 Base Extension",
+          "icon": "assets/img/default.png"
+        }
+      ]
+    },
+    "views": {
+      "vue-3-base-view": [
+        {
+          "type": "webview",
+          "id": "vue3baseextension",
+          "name": "Vue 3 Base Extension",
+          "icon": "assets/img/default.png",
+          "contextualTitle": "Vue 3 Base Extension"
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "eslint": "^8.28.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "typescript": "^4.9.3",
+    "@vscode/test-electron": "^2.2.0"
+  }
+}
