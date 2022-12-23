@@ -30,7 +30,7 @@ export class BaseViewProvider implements vscode.WebviewViewProvider {
 
 	private _getHtmlForWebview(webview: vscode.Webview) {
 		// Get the local path to main script run in the webview, then convert it to a uri we can use in the webview.
-		const scriptUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, "media", "main.js"));
+		const scriptUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, "dist/compiled", "index.es.js"));
 
 		// Do the same for the stylesheet.
 		const styleResetUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, "assets/css", "reset.css"));
@@ -61,9 +61,8 @@ export class BaseViewProvider implements vscode.WebviewViewProvider {
 				<title>Base View Extension</title>
 			</head>
 			<body>
-				<h1>Hello World!</h1>
-
-				<script nonce="${nonce}" src="${scriptUri}"></script>
+				<div id="app"></div>
+				<script nonce="${nonce}" type="module" src="${scriptUri}"></script>
 			</body>
 			</html>`;
 	}

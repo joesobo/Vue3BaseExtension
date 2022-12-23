@@ -9,14 +9,14 @@
   "categories": [
     "Other"
   ],
-  "main": "./out/extension.js",
+  "main": "./dist/extension.js",
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
+    "compile": "tsc -p ./tsconfig.extension.json --skipLibCheck && vite build",
     "lint": "eslint \"src/**/*.ts\"",
-    "watch": "tsc -w -p ./"
+    "watch": "concurrently \"tsc -w -p ./tsconfig.extension.json --skipLibCheck\" \"vite build --watch\"",
+    "typecheck": "vue-tsc --noEmit --skipLibCheck"
   },
-  "activationEvents": [],
   "contributes": {
     "viewsContainers": {
       "activitybar": [
@@ -39,11 +39,19 @@
       ]
     }
   },
+  "dependencies": {
+    "vue": "^3.2.45"
+  },
   "devDependencies": {
+    "@types/node": "^18.11.17",
     "@types/vscode": "^1.73.0",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "concurrently": "^7.6.0",
     "eslint": "^8.26.0",
-    "typescript": "^4.8.4"
+    "typescript": "^4.8.4",
+    "vite": "^2.9.14",
+    "vue-tsc": "^0.40.6"
   }
 }
