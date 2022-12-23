@@ -36,6 +36,7 @@ export class BaseViewProvider implements vscode.WebviewViewProvider {
 		const styleResetUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, "assets/css", "reset.css"));
 		const styleVSCodeUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, "assets/css", "vscode.css"));
 		const styleMainUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, "assets/css", "main.css"));
+		const styleTailwindUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, "dist", "output.css"));
 
 		// Use a nonce to only allow a specific script to be run.
 		const nonce = getNonce();
@@ -57,6 +58,7 @@ export class BaseViewProvider implements vscode.WebviewViewProvider {
 				<link href="${styleResetUri}" rel="stylesheet">
 				<link href="${styleVSCodeUri}" rel="stylesheet">
 				<link href="${styleMainUri}" rel="stylesheet">
+				<link href="${styleTailwindUri}" rel="stylesheet">
 
 				<title>Base View Extension</title>
 			</head>
