@@ -1,41 +1,12 @@
 {
-  "compilerOptions": {
-    // unreachable code is considered tech debt and should be removed
-    "allowUnreachableCode": false,
-    // labels aren't ever used and most likely indicate a syntax error
-    "allowUnusedLabels": false,
-    // use cases for fallthroughs are typically contrived and unintuitive, best to avoid them
-    "noFallthroughCasesInSwitch": true,
-    // help ensure extended classes are valid
-    "noImplicitOverride": true,
-    // ensure all code paths return the expected type
-    "noImplicitReturns": true,
-    // enable strict mode; implicit types/behaviors will raise errors
-    "strict": true,
-    // generates source maps
-    "sourceMap": true,
-    // encourage use of TypeScript
-    "allowJs": false,
-    // If no default export is present, all exports are imported
-    "allowSyntheticDefaultImports": true,
-    // fixes issue with how CommonJS code is imported
-    "esModuleInterop": true,
-    // imports from files are case sensitive
-    "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "Node",
-    "declaration": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "resolveJsonModule": true,
-    "importHelpers": true,
-    "removeComments": false,
-    "preserveConstEnums": true,
-    "jsx": "preserve",
-    "skipLibCheck": true,
-    "module": "commonjs",
-    "target": "ES2020",
-    "outDir": "dist",
-    "lib": ["ES2020"],
-    "rootDir": "src"
-  }
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es2020",
+		"lib": ["es2020"],
+		"outDir": "out",
+		"sourceMap": true,
+		"strict": true,
+		"rootDir": "src"
+	},
+	"exclude": ["node_modules", ".vscode-test"]
 }
