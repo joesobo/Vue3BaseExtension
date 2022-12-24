@@ -1,10 +1,9 @@
-
-import * as vscode from "vscode"
+import * as vscode from 'vscode'
 
 export class BaseViewProvider implements vscode.WebviewViewProvider {
-	public static readonly viewType = "base-view-sidebar";
+	public static readonly viewType = 'base-view-sidebar'
 
-	private _view?: vscode.WebviewView;
+	private _view?: vscode.WebviewView
 
 	constructor(
 		private readonly _extensionUri: vscode.Uri,
@@ -15,7 +14,7 @@ export class BaseViewProvider implements vscode.WebviewViewProvider {
 		context: vscode.WebviewViewResolveContext,
 		_token: vscode.CancellationToken,
 	) {
-		this._view = webviewView;
+		this._view = webviewView
 
 		webviewView.webview.options = {
 			// Allow scripts in the webview
@@ -23,23 +22,23 @@ export class BaseViewProvider implements vscode.WebviewViewProvider {
 			localResourceRoots: [
 				this._extensionUri
 			]
-		};
+		}
 
-		webviewView.webview.html = this._getHtmlForWebview(webviewView.webview);
+		webviewView.webview.html = this._getHtmlForWebview(webviewView.webview)
 	}
 
 	private _getHtmlForWebview(webview: vscode.Webview) {
 		// Get the local path to main script run in the webview, then convert it to a uri we can use in the webview.
-		const scriptUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, "dist/compiled", "index.es.js"));
+		const scriptUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'dist/compiled', 'index.es.js'))
 
 		// Do the same for the stylesheet.
-		const styleResetUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, "src/assets/css", "reset.css"));
-		const styleVSCodeUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, "src/assets/css", "vscode.css"));
-		const styleMainUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, "src/assets/css", "main.css"));
-		const styleTailwindUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, "dist", "output.css"));
+		const styleResetUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'src/assets/css', 'reset.css'))
+		const styleVSCodeUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'src/assets/css', 'vscode.css'))
+		const styleMainUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'src/assets/css', 'main.css'))
+		const styleTailwindUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'dist', 'output.css'))
 
 		// Use a nonce to only allow a specific script to be run.
-		const nonce = getNonce();
+		const nonce = getNonce()
 
 		return `<!DOCTYPE html>
 			<html lang="en">
@@ -66,15 +65,15 @@ export class BaseViewProvider implements vscode.WebviewViewProvider {
 				<div id="app"></div>
 				<script nonce="${nonce}" type="module" src="${scriptUri}"></script>
 			</body>
-			</html>`;
+			</html>`
 	}
 }
 
 function getNonce() {
-	let text = "";
-	const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+	let text = ''
+	const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 	for (let i = 0; i < 32; i++) {
-		text += possible.charAt(Math.floor(Math.random() * possible.length));
+		text += possible.charAt(Math.floor(Math.random() * possible.length))
 	}
-	return text;
+	return text
 }

@@ -13,7 +13,7 @@
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./tsconfig.extension.json --skipLibCheck && vite build && tailwindcss -i ./src/assets/css/tailwind.css -o ./dist/output.css",
-    "lint": "eslint \"src/**/*.ts\"",
+    "lint": "eslint \"src/**/*.{ts,vue}\"",
     "watch": "concurrently \"tsc -w -p ./tsconfig.extension.json --skipLibCheck\" \"vite build --watch\" \"tailwindcss -i ./src/assets/css/tailwind.css -o ./dist/output.css --watch\"",
     "typecheck": "vue-tsc --noEmit --skipLibCheck",
     "test": "vitest",
@@ -59,7 +59,8 @@
     "@typescript-eslint/parser": "^5.42.0",
     "@vitejs/plugin-vue": "^2.3.3",
     "concurrently": "^7.6.0",
-    "eslint": "^8.26.0",
+    "eslint": "^8.30.0",
+    "eslint-plugin-vue": "^9.8.0",
     "jsdom": "^20.0.3",
     "tailwindcss": "^3.2.4",
     "typescript": "^4.8.4",

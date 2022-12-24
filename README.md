@@ -13,8 +13,7 @@ Everything you need to get started with a sidebar extension.
 - [x] Vitest
 	- [x] Vitest UI
 - [x] Testing Library
-- [ ] Decent Linting
-- [ ] Decent Typechecking
+- [x] Decent Linting
 - [ ] CircleCI
 - [ ] Basic VSCode API Message Examples
 
@@ -26,6 +25,10 @@ Modify the following files:
 	- Replace all instances of `vue-3-base-view` with a view ID
 	- Replace all instances of `Vue 3 Base Extension` with an extension name
 	- Replace `default.png` with your own extension icon
+
+Run the extension:
+- Enter `yarn watch` in the console
+- Press `f5` on the `extension.ts` to open a debug window
 
 ## Recommended VSCode Extensions
 
