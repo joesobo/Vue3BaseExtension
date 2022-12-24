@@ -26,6 +26,6 @@
       "@intlify/unplugin-vue-i18n/messages"
     ]
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "src/**/*.json"],
   "exclude": ["dist", "node_modules", "vite.config.ts"]
 }
