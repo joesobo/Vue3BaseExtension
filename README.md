@@ -19,6 +19,9 @@ Everything you need to get started with a sidebar extension.
 
 ## Get Started:
 
+Install dependencies:
+- `yarn install`
+
 Modify the following files:
 - `package.json`
 	- Replace all instances of `vue3baseextension` with your extension id
@@ -28,7 +31,8 @@ Modify the following files:
 
 Run the extension:
 - Enter `yarn watch` in the console
-- Press `f5` on the `extension.ts` to open a debug window
+- Press `f5` on the `extension.ts` to open a debug window (or select in menu "Debug" -> "Run Extension")
+- Navigate to the extension icon seen on the left sidebar (or open command palette (`Ctrl/Cmd + Shift + P`) and select `View: Vue 3 Base Extension` to open webview view.)
 
 ## Recommended VSCode Extensions
 
@@ -36,3 +40,8 @@ Run the extension:
 - [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
 - [I18n A11y](https://marketplace.visualstudio.com/items?itemName=Lokalise.i18n-ally)
 - [Iconify Intellisense](https://marketplace.visualstudio.com/items?itemName=antfu.iconify)
+
+## References
+- [Webviews](https://code.visualstudio.com/api/extension-guides/webview)
+- [UX Guidelines](https://code.visualstudio.com/api/ux-guidelines/overview)
+- [Webview view API](https://code.visualstudio.com/api/references/vscode-api#WebviewView)
