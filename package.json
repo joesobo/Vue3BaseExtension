@@ -12,9 +12,9 @@
   "main": "./dist/extension.js",
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./tsconfig.extension.json --skipLibCheck && vite build && tailwindcss -i ./assets/css/tailwind.css -o ./dist/output.css",
+    "compile": "tsc -p ./tsconfig.extension.json --skipLibCheck && vite build && tailwindcss -i ./src/assets/css/tailwind.css -o ./dist/output.css",
     "lint": "eslint \"src/**/*.ts\"",
-    "watch": "concurrently \"tsc -w -p ./tsconfig.extension.json --skipLibCheck\" \"vite build --watch\" \"tailwindcss -i ./assets/css/tailwind.css -o ./dist/output.css --watch\"",
+    "watch": "concurrently \"tsc -w -p ./tsconfig.extension.json --skipLibCheck\" \"vite build --watch\" \"tailwindcss -i ./src/assets/css/tailwind.css -o ./dist/output.css --watch\"",
     "typecheck": "vue-tsc --noEmit --skipLibCheck"
   },
   "contributes": {
@@ -23,7 +23,7 @@
         {
           "id": "vue-3-base-view",
           "title": "Vue 3 Base Extension",
-          "icon": "assets/img/default.png"
+          "icon": "src/assets/img/default.png"
         }
       ]
     },
@@ -33,14 +33,16 @@
           "type": "webview",
           "id": "base-view-sidebar",
           "name": "Vue 3 Base Extension",
-          "icon": "assets/img/default.png",
+          "icon": "src/assets/img/default.png",
           "contextualTitle": "Vue 3 Base Extension"
         }
       ]
     }
   },
   "dependencies": {
-    "vue": "^3.2.45"
+    "@intlify/unplugin-vue-i18n": "^0.8.1",
+    "vue": "^3.2.45",
+    "vue-i18n": "9"
   },
   "devDependencies": {
     "@iconify-json/mdi": "^1.1.39",

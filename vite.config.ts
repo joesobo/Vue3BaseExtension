@@ -1,5 +1,6 @@
 import vue from "@vitejs/plugin-vue"
 import Icons from "unplugin-icons/vite"
+import VueI18nPlugin from "@intlify/unplugin-vue-i18n/vite"
 import { defineConfig } from "vite"
 
 module.exports = defineConfig({
@@ -7,7 +8,8 @@ module.exports = defineConfig({
 		vue({ customElement: true }),
 		Icons({
 			autoInstall: true,
-		})
+		}),
+		VueI18nPlugin({ }),
 	],
 	build: {
 		lib: {

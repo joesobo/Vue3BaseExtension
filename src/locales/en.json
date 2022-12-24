@@ -1,0 +1,9 @@
+{
+  "hello": "Hello",
+  "menu": {
+    "home": "Home",
+    "about": "About",
+    "external": "External",
+    "language": "Languages"
+  }
+}

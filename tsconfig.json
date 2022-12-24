@@ -18,8 +18,12 @@
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
     "noEmit": true,
-    "types": ["vite/client", "unplugin-icons/types/vue"]
+    "types": [
+      "vite/client",
+      "unplugin-icons/types/vue",
+      "@intlify/unplugin-vue-i18n/messages"
+    ]
   },
-  "include": ["src/**/*.ts", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.vue", "src/**/*.json"],
   "exclude": ["dist", "node_modules", "*.d.ts", "vite.config.ts"]
 }
