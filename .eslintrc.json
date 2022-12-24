@@ -17,7 +17,8 @@
       }
     ],
     "object-curly-spacing": ["error", "always"],
-    "semi": ["error", "never"]
+    "semi": ["error", "never"],
+    "indent": ["error", "tab"]
   },
   "parser": "vue-eslint-parser",
   "parserOptions": {
@@ -27,5 +28,8 @@
       "ts": "@typescript-eslint/parser"
     }
   },
-  "ignorePatterns": ["out", "dist", "**/*.d.ts"]
+  "ignorePatterns": ["dist", "**/*.d.ts"],
+  "globals": {
+    "vscode": "writable"
+  }
 }

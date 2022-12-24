@@ -15,7 +15,7 @@ Everything you need to get started with a sidebar extension.
 - [x] Testing Library
 - [x] Decent Linting
 - [x] CircleCI
-- [ ] Basic VSCode API Message Examples
+- [x] Basic VSCode API Message Examples
 
 ## Get Started:
 

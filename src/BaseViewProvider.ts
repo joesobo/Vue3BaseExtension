@@ -1,4 +1,5 @@
 import * as vscode from 'vscode'
+import { handleMessages } from './messenger'
 
 export class BaseViewProvider implements vscode.WebviewViewProvider {
 	public static readonly viewType = 'base-view-sidebar'
@@ -37,43 +38,31 @@ export class BaseViewProvider implements vscode.WebviewViewProvider {
 		const styleMainUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'src/assets/css', 'main.css'))
 		const styleTailwindUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'dist', 'output.css'))
 
-		// Use a nonce to only allow a specific script to be run.
-		const nonce = getNonce()
+		handleMessages(webview)
 
-		return `<!DOCTYPE html>
+		return `
+			<!DOCTYPE html>
 			<html lang="en">
-			<head>
-				<meta charset="UTF-8">
+				<head>
+					<meta charset="UTF-8">
+					<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-				<!--
-					Use a content security policy to only allow loading styles from our extension directory,
-					and only allow scripts that have a specific nonce.
-					(See the 'webview-sample' extension sample for img-src content security policy examples)
-				-->
-				<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src ${webview.cspSource}; script-src 'nonce-${nonce}';">
+					<link href="${styleResetUri}" rel="stylesheet">
+					<link href="${styleVSCodeUri}" rel="stylesheet">
+					<link href="${styleMainUri}" rel="stylesheet">
+					<link href="${styleTailwindUri}" rel="stylesheet">
 
-				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+					<title>Base View Extension</title>
+				</head>
+				<body>
+					<script>
+						const vscode = acquireVsCodeApi();
+					</script>
 
-				<link href="${styleResetUri}" rel="stylesheet">
-				<link href="${styleVSCodeUri}" rel="stylesheet">
-				<link href="${styleMainUri}" rel="stylesheet">
-				<link href="${styleTailwindUri}" rel="stylesheet">
+					<div id="app"></div>
 
-				<title>Base View Extension</title>
-			</head>
-			<body>
-				<div id="app"></div>
-				<script nonce="${nonce}" type="module" src="${scriptUri}"></script>
-			</body>
+					<script type="module" src="${scriptUri}"></script>
+				</body>
 			</html>`
 	}
-}
-
-function getNonce() {
-	let text = ''
-	const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-	for (let i = 0; i < 32; i++) {
-		text += possible.charAt(Math.floor(Math.random() * possible.length))
-	}
-	return text
 }
