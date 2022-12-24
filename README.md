@@ -10,10 +10,13 @@ Everything you need to get started with a sidebar extension.
 	- [ ] Vscode Default style Tailwind config
 - [x] Iconify via unplugin
 - [x] I18n via unplugin
-- [ ] Vitest
+- [x] Vitest
+	- [x] Vitest UI
+- [x] Testing Library
 - [ ] Decent Linting
 - [ ] Decent Typechecking
 - [ ] CircleCI
+- [ ] Basic VSCode API Message Examples
 
 ## Get Started:
 
@@ -23,3 +26,10 @@ Modify the following files:
 	- Replace all instances of `vue-3-base-view` with a view ID
 	- Replace all instances of `Vue 3 Base Extension` with an extension name
 	- Replace `default.png` with your own extension icon
+
+## Recommended VSCode Extensions
+
+- [Vitest](https://marketplace.visualstudio.com/items?itemName=ZixuanChen.vitest-explorer)
+- [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+- [I18n A11y](https://marketplace.visualstudio.com/items?itemName=Lokalise.i18n-ally)
+- [Iconify Intellisense](https://marketplace.visualstudio.com/items?itemName=antfu.iconify)
