@@ -33,10 +33,7 @@ export class BaseViewProvider implements vscode.WebviewViewProvider {
 		const scriptUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'dist/compiled', 'index.es.js'))
 
 		// Do the same for the stylesheet.
-		const styleResetUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'src/assets/css', 'reset.css'))
-		const styleVSCodeUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'src/assets/css', 'vscode.css'))
-		const styleMainUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'src/assets/css', 'main.css'))
-		const styleTailwindUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'dist', 'output.css'))
+		const styleMainUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'dist', 'output.css'))
 
 		handleMessages(webview)
 
@@ -47,10 +44,7 @@ export class BaseViewProvider implements vscode.WebviewViewProvider {
 					<meta charset="UTF-8">
 					<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-					<link href="${styleResetUri}" rel="stylesheet">
-					<link href="${styleVSCodeUri}" rel="stylesheet">
 					<link href="${styleMainUri}" rel="stylesheet">
-					<link href="${styleTailwindUri}" rel="stylesheet">
 
 					<title>Base View Extension</title>
 				</head>

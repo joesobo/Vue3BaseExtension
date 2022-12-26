@@ -1,20 +1,54 @@
 <template>
-  <h1 class="bg-red-500">
-    Hello world from Vue!
-  </h1>
-  <IconAccountBox style="font-size: 2em; color: red" />
-  <p>{{ $t('hello') }}</p>
-  <Button />
-  <p>Current File: {{ currentFile }}</p>
-  <button @click="openLastFile">
-    Open Last File
-  </button>
+  <div class="flex items-center flex-col w-3/4 mx-auto">
+    <IconLighthouse
+      style="font-size: 4em;"
+      class="my-2"
+    />
+    <h1 class="text-lg">
+      Vue 3 Extension Template
+    </h1>
+
+    <hr class="border-white w-full mt-4 mb-8">
+
+    <div class="flex gap-4">
+      <label>{{ t('language') }}</label>
+      <select
+        v-model="locale"
+        class="text-black"
+      >
+        <option value="en">
+          en
+        </option>
+        <option value="ja">
+          ja
+        </option>
+        <option value="fr">
+          fr
+        </option>
+      </select>
+    </div>
+    <p>Translated Content: {{ t('hello') }}</p>
+
+    <Button />
+
+    <p class="mt-4 mb-2">
+      Current File: {{ currentFile }}
+    </p>
+    <button
+      @click="openLastFile"
+    >
+      Open Last File
+    </button>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import IconAccountBox from '~icons/mdi/account-box'
+import { useI18n } from 'vue-i18n'
+import IconLighthouse from '~icons/mdi/lighthouse'
 import Button from './components/Button.vue'
+
+const { t, locale } = useI18n()
 
 let currentFile = ref('')
 let lastFile = ref('')

@@ -1,8 +1,13 @@
 <template>
-  <div>
-    <p>Times clicked: {{ count }}</p>
-    <button @click="increment">
-      increment
+  <div class="flex mt-4 gap-4 items-center w-full">
+    <p class="w-1/2">
+      Times clicked: {{ count }}
+    </p>
+    <button
+      class="w-1/2"
+      @click="increment"
+    >
+      Increment
     </button>
   </div>
 </template>

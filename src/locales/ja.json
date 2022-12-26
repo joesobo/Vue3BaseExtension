@@ -1,9 +1,4 @@
 {
-  "hello": "TEST",
-  "menu": {
-    "home": "TEST",
-    "about": "TEST",
-    "external": "TEST",
-    "language": "TEST"
-  }
+  "hello": "こんにちは",
+  "language": "Japanese"
 }
