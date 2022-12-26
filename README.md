@@ -49,3 +49,4 @@ Run the extension:
 - [Webviews](https://code.visualstudio.com/api/extension-guides/webview)
 - [UX Guidelines](https://code.visualstudio.com/api/ux-guidelines/overview)
 - [Webview view API](https://code.visualstudio.com/api/references/vscode-api#WebviewView)
+- [Theme Guidelines](https://code.visualstudio.com/api/references/theme-color)
