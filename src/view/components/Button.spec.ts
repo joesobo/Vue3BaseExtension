@@ -9,7 +9,7 @@ describe('tests', () => {
 
 	it('increments value on click', async () => {
 		const { getByText } = render(Button)
-		const button = getByText('increment')
+		const button = getByText('Increment')
 
 		getByText('Times clicked: 0')
 
